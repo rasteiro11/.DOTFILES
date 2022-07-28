@@ -11,6 +11,7 @@ set nu
 set nowrap
 set smartcase
 set noswapfile
+set relativenumber
 set nobackup
 set undofile
 set incsearch
@@ -18,7 +19,22 @@ set scrolloff=8
 set signcolumn=yes
 set termguicolors
 
-nnoremap <F5> :FZF <CR>
+" Ident text
+vnoremap <A-l> >gv     
+vnoremap <A-h> <gv
+
+" Open FZF
+nnoremap <leader>s :FZF<CR>
+
+" Move text up and down
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
+
+inoremap <A-j> <Esc>:m .+1<CR>==gi
+inoremap <A-k> <Esc>:m .-2<CR>==gi
+
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv
 
 vmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
@@ -63,7 +79,7 @@ set nobackup
 set nowritebackup
 
 " Give more space for displaying messages.
-set cmdheight=2
+set cmdheight=1
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
@@ -81,8 +97,10 @@ else
   set signcolumn=yes
 endif
 
+
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+
 " other plugin before putting this into your config.
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
@@ -237,12 +255,15 @@ call plug#begin('~/local/share/nvim/plugged')
 	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 	Plug 'sheerun/vim-polyglot'
 	Plug 'neovim/nvim-lspconfig'
+    Plug 'shirk/vim-gas'
 	Plug 'rust-lang/rust.vim'
     Plug 'tribela/vim-transparent'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'Eric-Song-Nop/vim-glslx'
 call plug#end()
 
 let g:gruvbox_termcolors=16
+let g:gruvbox_contrast_dark = 'hard'
 "let g:material_style='palenight'
 "set background=dark
 "colorscheme vim-material
@@ -269,7 +290,7 @@ let g:airline_theme = 'gruvbox'
 "let g:NERDTreeSyntaxEnabledExtensions = ['c', 'h', 'c++', 'cpp', 'php', 'rb', 'js', 'css', 'html', 'java', 'rs'] " enabled extensions with default colors
 
 " Always show tabs
-set showtabline=2
+set showtabline=1
 
 "lua require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
 lua <<EOF
