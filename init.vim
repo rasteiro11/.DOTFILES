@@ -1,4 +1,3 @@
-
 syntax enable
 
 set background=dark
@@ -97,21 +96,16 @@ else
   set signcolumn=yes
 endif
 
-
-" Use tab for trigger completion with characters ahead and navigate.
-" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
-
-" other plugin before putting this into your config.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
+" use <tab> for trigger completion and navigate to the next complete item
+function! CheckBackspace() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
+
+inoremap <silent><expr> <Tab>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
 
 " Use <c-space> to trigger completion.
 if has('nvim')
@@ -122,8 +116,10 @@ endif
 
 " Make <CR> auto-select the first completion item and notify coc.nvim to
 " format on enter, <cr> could be remapped by other vim plugin
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+"inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+"                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
@@ -238,21 +234,21 @@ highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 call plug#begin('~/local/share/nvim/plugged')
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
+	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
  	Plug 'sheerun/vim-polyglot'
 	Plug 'scrooloose/NERDTree'
 	Plug 'airblade/vim-gitgutter'
 	Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 	Plug 'jiangmiao/auto-pairs'
 	Plug 'gruvbox-community/gruvbox'
-    	Plug 'chriskempson/base16-vim'
-    	Plug 'vim-airline/vim-airline'
+    Plug 'chriskempson/base16-vim'
+    Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
 	Plug 'navarasu/onedark.nvim'
 	Plug 'yuezk/vim-js'
 	Plug 'karoliskoncevicius/vim-sendtowindow'
-    	Plug 'hzchirs/vim-material'	
+    Plug 'hzchirs/vim-material'	
 	Plug 'jupyter-vim/jupyter-vim'
-	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 	Plug 'sheerun/vim-polyglot'
 	Plug 'neovim/nvim-lspconfig'
     Plug 'shirk/vim-gas'
@@ -297,9 +293,3 @@ lua <<EOF
     require 'nvim-treesitter.install'.compilers = {"clang", "cl", "gcc", "cc"}
     require'nvim-treesitter.configs'.setup { highlight = { enable = true }, incremental_selection = { enable = true }, textobjects = { enable = true }}
 EOF
-
-
-
-
-
-
