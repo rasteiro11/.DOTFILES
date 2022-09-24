@@ -1,7 +1,8 @@
 {
     "coc.preferences.formatOnSaveFiletypes": ["java", "rust", "c", "cpp", "go"],
-    "rust-analyzer.inlayHints.enable": false,
     "inlayHint.enableParameter": false,
+    "rust-analyzer.inlayHints.enable": false,
+    "rust-analyzer.inlayHints.closingBraceHints.enable": false,
     "rust-analyzer.inlayHints.hideNamedConstructorHints": true,
     "rust-analyzer.inlayHints.typeHints": false,
     "rust-analyzer.inlayHints.chainingHints": false,
