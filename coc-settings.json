@@ -1,14 +1,16 @@
 {
-    "coc.preferences.formatOnSaveFiletypes": ["java", "rust", "c", "cpp"],
+    "coc.preferences.formatOnSaveFiletypes": ["java", "rust", "c", "cpp", "go"],
     "rust-analyzer.inlayHints.enable": false,
-    "rust-analyzer.inlayHints.typeHints.enable": false,
+    "inlayHint.enableParameter": false,
+    "rust-analyzer.inlayHints.hideNamedConstructorHints": true,
+    "rust-analyzer.inlayHints.typeHints": false,
+    "rust-analyzer.inlayHints.chainingHints": false,
     "languageserver": {
-        "arduino": {
-            "command": "~/Documents/ARDUINO/arduino-language-server/arduino-language-server",
-            "rootPatterns": ["*.ino"],
-            "filetypes":["arduino"],
-            "args": ["-cli", "~/bin/arduino-cli", "-clangd", "/usr/bin/clangd", "-cli-config", 
-            "~/.arduino15/arduino-cli.yaml", "-fqbn", "arduino:avr:uno"]
+        "csharp-ls": {
+          "command": "csharp-ls",
+          "filetypes": ["cs"],
+          "rootPatterns": ["*.csproj", ".vim/", ".git/", ".hg/"]
         }
     }
 }
+
