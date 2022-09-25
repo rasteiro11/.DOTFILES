@@ -238,7 +238,6 @@ call plug#begin('~/local/share/nvim/plugged')
 	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
  	Plug 'sheerun/vim-polyglot'
 	Plug 'scrooloose/NERDTree'
-	Plug 'airblade/vim-gitgutter'
 	Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 	Plug 'jiangmiao/auto-pairs'
 	Plug 'gruvbox-community/gruvbox'
