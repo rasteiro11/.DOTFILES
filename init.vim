@@ -18,6 +18,7 @@ set incsearch
 set scrolloff=8
 set signcolumn=yes
 set termguicolors
+set clipboard=unnamedplus
 
 " Ident text
 vnoremap <A-l> >gv     
