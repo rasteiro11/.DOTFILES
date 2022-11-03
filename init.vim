@@ -1,7 +1,7 @@
-
 syntax enable
 
 set background=dark
+set mouse=a
 set splitright splitbelow
 set noerrorbells
 set tabstop=4 softtabstop=4
@@ -259,6 +259,19 @@ call plug#end()
 
 map <Leader>tp :new term://bash<CR>ipython3<CR><C-\><C-n><C-w>k
 
+vnoremap  <leader>y  "+y
+nnoremap  <leader>Y  "+yg_
+nnoremap  <leader>y  "+y
+nnoremap  <leader>yy  "+yy
+
+" " Paste from clipboard
+nnoremap <leader>p "+p
+nnoremap <leader>P "+P
+vnoremap <leader>p "+p
+vnoremap <leader>P "+P
+
+nnoremap <leader>yy "+yy
+
 nnoremap d "_d
 vnoremap d "_d
 nnoremap D "_D
@@ -305,9 +318,3 @@ lua <<EOF
     require 'nvim-treesitter.install'.compilers = {"clang", "cl", "gcc", "cc"}
     require'nvim-treesitter.configs'.setup { highlight = { enable = true }, incremental_selection = { enable = true }, textobjects = { enable = true }}
 EOF
-
-
-
-
-
-
