@@ -67,6 +67,10 @@ nnoremap <buffer> <silent> <localleader>U :JupyterUpdateShell<CR>
 " Debugging maps
 nnoremap <buffer> <silent> <localleader>b :PythonSetBreak<CR>
 
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " Set internal encoding of vim, not needed on neovim, since coc.nvim using some
 " unicode characters in the file autoload/float.vim
@@ -255,6 +259,8 @@ call plug#begin('~/local/share/nvim/plugged')
     Plug 'tribela/vim-transparent'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'Eric-Song-Nop/vim-glslx'
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 call plug#end()
 
 map <Leader>tp :new term://bash<CR>ipython3<CR><C-\><C-n><C-w>k
