@@ -9,6 +9,7 @@ set expandtab
 set smartindent
 set nu
 set nowrap
+set hidden
 set smartcase
 set noswapfile
 set relativenumber
@@ -261,6 +262,7 @@ call plug#begin('~/local/share/nvim/plugged')
     Plug 'Eric-Song-Nop/vim-glslx'
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+    Plug 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build', 'branch': 'main' }
 call plug#end()
 
 map <Leader>tp :new term://bash<CR>ipython3<CR><C-\><C-n><C-w>k
@@ -298,7 +300,7 @@ let g:gruvbox_contrast_dark = 'hard'
 "let g:onedark_style = 'darker'
 "colorscheme onedark
 colorscheme gruvbox
-let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 0
 let g:airline#extensions#tabline#left_sep = ''
 let g:airline#extensions#tabline#left_alt_sep = ''
 let g:airline#extensions#tabline#right_sep = ''
@@ -318,6 +320,7 @@ let g:airline_theme = 'gruvbox'
 
 " Always show tabs
 set showtabline=1
+
 
 "lua require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
 lua <<EOF
