@@ -6,6 +6,8 @@
     "rust-analyzer.inlayHints.hideNamedConstructorHints": true,
     "rust-analyzer.inlayHints.typeHints": false,
     "rust-analyzer.inlayHints.chainingHints": false,
+    "diagnostic.virtualText": true,
+    "diagnostic.virtualTextCurrentLineOnly": false,
     "languageserver": {
         "csharp-ls": {
           "command": "csharp-ls",
@@ -13,5 +15,7 @@
           "rootPatterns": ["*.csproj", ".vim/", ".git/", ".hg/"]
         }
     },
-    "snippets.ultisnips.pythonPrompt": false
+    "snippets.ultisnips.pythonPrompt": false,
+    "r.lsp.path": "/usr/bin/R",
+    "r.lsp.diagnostics": true
 }

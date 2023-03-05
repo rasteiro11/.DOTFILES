@@ -321,7 +321,6 @@ let g:airline_theme = 'gruvbox'
 " Always show tabs
 set showtabline=1
 
-
 "lua require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
 lua <<EOF
     require 'nvim-treesitter.install'.compilers = {"clang", "cl", "gcc", "cc"}
